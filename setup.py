@@ -14,7 +14,7 @@ pandas==1.1.4
 
 setup(
     name='file-reader-utility',
-    version='0.1.0',
+    version='0.2.0',
     author='Lahiru Madhawa',
     author_email='kmlahiru24@gmail.com',
     description='file reader utility',
