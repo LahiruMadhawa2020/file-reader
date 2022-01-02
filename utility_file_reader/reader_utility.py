@@ -4,6 +4,17 @@ import datetime
 import json
 from configparser import ConfigParser
 import os
+from pathlib import Path
+import sys
+
+
+def get_project_root_unorthodox(venv_root) -> Path:
+    # return Path(__file__).parent.parent.parent
+    return Path(venv_root).parent.parent.parent
+
+
+def get_project_venv_root():
+    return os.path.dirname(sys.modules['__main__'].__file__)
 
 
 def trim_with_strip(column_of_data_set):
@@ -23,7 +34,12 @@ def reader_without_configuration_file(file_extension, path_from_repository_root_
     try:
         if file_extension == "csv" or file_extension == "tsv" or file_extension == "dat" or file_extension == "txt":
 
-            file_location = "{}".format(path_from_repository_root_with_extension)
+            venv_root_dir = get_project_venv_root()
+            root_dir = get_project_root_unorthodox(venv_root_dir)
+            file_location = "{}/{}".format(root_dir, path_from_repository_root_with_extension)
+            # root_dir = os.path.dirname(os.path.abspath(__file__))
+            # file_location_concat = os.path.join(root_dir, path_from_repository_root_with_extension)
+            # file_location = "{}".format(file_location_concat)
 
             if is_headers_present == "yes" and selected_columns == "na" and data_types == "na" and sorting_required_status == "no" and date_column_list == "na":
                 data_set = pd.read_csv(file_location, sep=delimiter, header=0,
@@ -96,8 +112,11 @@ def reader_from_configuration_file(config_file_extension, path_from_repository_r
     try:
         if config_file_extension == 'ini':
             configure = ConfigParser()
-
-            configure.read(os.path.join(os.path.dirname(os.path.abspath(__file__)), path_from_repository_root_to_config_file))
+            venv_root_dir = get_project_venv_root()
+            root_dir = get_project_root_unorthodox(venv_root_dir)
+            file_location = "{}/{}".format(root_dir, path_from_repository_root_to_config_file)
+            configure.read(file_location)
+            # configure.read(os.path.join(os.path.dirname(os.path.abspath(__file__)), path_from_repository_root_to_config_file))
             file_extension = configure.get('{}'.format(source_to_read), 'extension')
             path_from_repository_root_with_extension = configure.get('{}'.format(source_to_read), 'file_path')
             delimiter = configure.get('{}'.format(source_to_read), 'delimiter_value')
