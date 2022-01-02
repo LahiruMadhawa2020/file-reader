@@ -14,7 +14,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='file-reader-utility',
-    version='0.4.0',
+    version='0.5.0',
     author='Lahiru Madhawa',
     author_email='kmlahiru24@gmail.com',
     description='file reader utility',
