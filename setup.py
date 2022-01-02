@@ -3,7 +3,7 @@ from setuptools import setup
 from setuptools import find_namespace_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+    readme = fh.read()
 
 install_requires = '''
 setuptools==60.1.0
@@ -18,7 +18,7 @@ setup(
     author='Lahiru Madhawa',
     author_email='kmlahiru24@gmail.com',
     description='file reader utility',
-    long_description="file: README.md",
+    long_description=readme,
     long_description_content_type="text/markdown",
     url='https://github.com/LahiruMadhawa2020/file-reader-tester.git',
     packages=[''],
