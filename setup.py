@@ -5,16 +5,16 @@ from setuptools import find_namespace_packages
 with open("README.md", "r", encoding="utf-8") as fh:
     readme = fh.read()
 
-install_requires = '''
-setuptools==60.1.0
-wheel==0.37.1
-pytest==6.1.2
-pandas==1.1.4
-'''
+# install_requires = '''
+# setuptools==60.1.0
+# wheel==0.37.1
+# pytest==6.1.2
+# pandas==1.1.4
+# '''
 
 setup(
     name='file-reader-utility',
-    version='0.2.0',
+    version='0.3.0',
     author='Lahiru Madhawa',
     author_email='kmlahiru24@gmail.com',
     description='file reader utility',
@@ -23,7 +23,7 @@ setup(
     url='https://github.com/LahiruMadhawa2020/file-reader-tester.git',
     packages=['utility_file_reader'],
     include_package_data=True,
-    # install_requires=["setuptools==60.1.0", "wheel==0.37.1", "pytest==6.1.2", "pandas==1.1.4"],
+    install_requires=["setuptools==60.1.0", "wheel==0.37.1", "pytest==6.1.2", "pandas==1.1.4"],
     python_requires='>=3.6',
     license='MIT',
     platforms=['any'],
