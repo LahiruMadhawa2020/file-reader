@@ -27,8 +27,7 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
-        "Framework :: Pandas",
-        'Intended Audience :: Big Data Pipeline Testers',
+        'Intended Audience :: Education',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
         "Programming Language :: Python :: 3",
