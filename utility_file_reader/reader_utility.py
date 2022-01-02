@@ -23,8 +23,7 @@ def reader_without_configuration_file(file_extension, path_from_repository_root_
     try:
         if file_extension == "csv" or file_extension == "tsv" or file_extension == "dat" or file_extension == "txt":
 
-            configure = ConfigParser()
-            file_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "{}".format(path_from_repository_root_with_extension))
+            file_location = "{}".format(path_from_repository_root_with_extension)
 
             if is_headers_present == "yes" and selected_columns == "na" and data_types == "na" and sorting_required_status == "no" and date_column_list == "na":
                 data_set = pd.read_csv(file_location, sep=delimiter, header=0,
