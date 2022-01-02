@@ -5,6 +5,13 @@ from setuptools import find_namespace_packages
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+install_requires = '''
+setuptools==60.1.0
+wheel==0.37.1
+pytest==6.1.2
+pandas==1.1.4
+'''
+
 setup(
     name='file-reader',
     version='0.1.0',
@@ -15,9 +22,15 @@ setup(
     long_description_content_type="text/markdown",
     url='https://github.com/LahiruMadhawa2020/file-reader-tester.git',
     packages=[''],
-    install_requires=["setuptools==60.1.0", "wheel==0.37.1", "pytest==6.1.2", "pandas==1.1.4"],
+    # install_requires=["setuptools==60.1.0", "wheel==0.37.1", "pytest==6.1.2", "pandas==1.1.4"],
     python_requires=">=3.6",
     classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Web Environment",
+        "Framework :: Pandas",
+        'Intended Audience :: Big Data Pipeline Testers',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Information Technology',
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
